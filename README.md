@@ -16,3 +16,6 @@ this only uwuifies system locale files in the GNU MO format.
 any programs that handle localization differently will not be uwuified.
 additionally, any special formatting in locale files other than C formatting specifiers may break.
 use at your own risk
+
+## scweenshot uwu
+![scweenshot uwu](https://raw.githubusercontent.com/notvelleda/lowocale/main/scweenshot.png)
