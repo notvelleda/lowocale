@@ -33,7 +33,7 @@ function uwuifyDir() {
 eval $(LANG="${LOCALE}" locale)
 
 if [ ! -f "./lowocale" ]; then
-	cc lowocale.c -o lowocale
+	cc -std=c99 lowocale.c -o lowocale
 	chmod +x lowocale
 fi
 

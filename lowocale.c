@@ -37,7 +37,8 @@ StringEntry getString(uint32_t offset, uint32_t index) {
 
 // uwuify string. yes i know this code sucks lmao
 void uwuify(char *str) {
-	while (*(str ++) != 0) {
+	str --;
+	while (*(++ str) != 0) {
 		switch (*str) {
 			case 'l':
 			case 'r':
@@ -49,7 +50,7 @@ void uwuify(char *str) {
 				break;
 			case '%':
 				// ignore formatting specifiers
-				while (*(str ++) != 0) {
+				while (*(++ str) != 0) {
 					switch (*str) {
 						case '%':
 						case 'c':
@@ -101,7 +102,7 @@ int main(int argc, char **argv) {
 
 	// get info about file
 	if (stat(filename, &info) != 0) {
-		fprintf(stderr, "error stat()ing file\n");
+		fprintf(stderr, "ewwow stat()ing fiwe\n");
 		return 1;
 	}
 
@@ -109,7 +110,7 @@ int main(int argc, char **argv) {
 	f = fopen(filename, "rb");
 
 	if (!f) {
-		fprintf(stderr, "error opening file\n");
+		fprintf(stderr, "ewwow opening fiwe\n");
 		return 1;
 	}
 
@@ -125,17 +126,17 @@ int main(int argc, char **argv) {
 
 	// check if magic number is correct
 	if (header->magic != MO_MAGIC) {
-		fprintf(stderr, "wrong magic number\n");
+		fprintf(stderr, "wwong magic numbew\n");
 		return 1;
 	}
 
 	// check if revision is correct
 	if (header->revision != 0 && header->revision != 1) {
-		fprintf(stderr, "wrong revision! we need revision 0 or 1\n");
+		fprintf(stderr, "wwong wevision! we need wevision 0 or 1\n");
 		return 1;
 	}
 
-	printf("%d strings\n", header->numStrings);
+	printf("%d stwings\n", header->numStrings);
 
 	// iterate over all strings
 	for (uint32_t i = 0; i < header->numStrings; i ++) {
@@ -146,14 +147,14 @@ int main(int argc, char **argv) {
 		// uwuify translated string
 		uwuify(strTrans.ptr);
 		
-		printf("%d: (len %d) \"%s\", translated \"%s\"\n", i, str.length, str.ptr, strTrans.ptr);
+		printf("%d: (wen %d) \"%s\", twanswated \"%s\"\n", i, str.length, str.ptr, strTrans.ptr);
 	}
 
 	// write uwuified MO file
 	f = fopen(outputFilename, "wb");
 
 	if (!f) {
-		fprintf(stderr, "error opening file\n");
+		fprintf(stderr, "ewwow opening fiwe\n");
 		return 1;
 	}
 
